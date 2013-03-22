@@ -1,0 +1,36 @@
+<h1> Opportunities </h1>
+
+<table width="100%">
+	<tr>
+		<th> Code </th>		
+		<th> Company </th>
+		<th> Address </th>
+		<th> Salary </th>
+		<th> Start Date </th>
+		<th> End Date </th>
+		<th> Requirements </th>
+		<th> Action </th>
+	</tr>
+
+<% @opportunities.each do |opportunity| %>
+	<tr>
+	<td> <%= opportunity.code %> </td>
+	<td> <%= opportunity.company %> </td>
+	<td> <%= opportunity.address %> </td>
+	<td> <%= opportunity.salary %> </td>
+	<td> <%= opportunity.start_date %> </td>
+	<td> <%= opportunity.end_date %> </td>	
+	<td> <%= opportunity.requirements %> </td>	
+	<td>
+		<%= link_to "Edit", edit_opportunity_path(opportunity) %> |
+		<%= link_to "Delete", opportunity_path(opportunity), :method => "delete", :confirm => "Are you sure?" %>
+
+	</td>
+	</tr>
+<% end %>
+</table>
+<br>
+<p>
+	<!-- <%= link_to "Add new opportunity", new_opportunity_path %>	-->
+	<%= link_to "Add new opportunity", new_opportunity_path, :class => "btn" %>
+</p>
