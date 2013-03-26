@@ -12,18 +12,14 @@
     </div>
   <% end %>
   <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.text_field :email, :placeholder => "Email" %>
   </p>
   <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+    <%= f.password_field :password, :placeholder => "Password" %>
   </p>
   <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %>
   </p>
-  <!-- <p class="button"><%= f.submit %></p> -->
   <%= button_tag(type: "submit", :class => "btn") do %>
     Create User
   <% end %>
