@@ -22,7 +22,7 @@ describe "OportunaSystem" do
 		@driver.find_element(:id, 'user_email').send_keys "teste1@teste1.com"
 		@driver.find_element(:id, 'user_password').send_keys "teste1"
 		@driver.find_element(:id, 'user_password_confirmation').send_keys "teste1"
-	    @driver.find_element(:id, 'create_user_button').click
+		@driver.find_element(:id, 'create_user_button').click
 		add_new_opportunity_button = @driver.find_element(:id, 'add_new_opportunity_button')
 		add_new_opportunity_button.displayed?.should be_true
 	end
