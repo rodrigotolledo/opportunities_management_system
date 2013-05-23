@@ -26,5 +26,13 @@ form label {
 }
 
 a{
-	color: green;
+	color: white;
+}
+
+#navbar .brand{
+	float:left;
+}
+#user_nav {
+	float: right;
+	margin: 10px 20px 0 0;
 }

@@ -1,7 +1,9 @@
 require 'selenium-webdriver'
 require 'rspec'
-#require 'active_record'
-#require File.expand_path(File.dirname(__FILE__) + "/../../app/models/user")
+
+require 'active_record'
+require 'active_model'
+require File.expand_path(File.dirname(__FILE__) + "/../../app/models/user")
 
 # Before run, make sure to delete user from database(workaround):
 # 1) rails console
@@ -15,6 +17,7 @@ describe "OportunaSystem" do
 	end
 
 	after(:all) do
+       #User.find_by_email("teste1@teste1.com").destroy
 		@driver.quit
 	end
 
