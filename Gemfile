@@ -40,10 +40,8 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 # For heroku! ;)
-
+gem 'sqlite3', :group => [:development, :test]
 group :production do
+  gem 'thin'
   gem 'pg'
-end
-group :development, :test do
-  gem 'sqlite3'
 end
