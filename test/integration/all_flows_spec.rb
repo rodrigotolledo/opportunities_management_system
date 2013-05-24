@@ -1,13 +1,16 @@
 require 'selenium-webdriver'
 require 'rspec'
-#require 'active_record'
-#require File.expand_path(File.dirname(__FILE__) + "/../../app/models/user")
+require 'active_record'
+require File.expand_path(File.dirname(__FILE__) + "/../../app/models/user")
 
-# Before run, make sure to delete user from database(workaround):
-# 1) rails console
-# 2) User.find_by_email("teste1@teste1.com").destroy
+class OportunaSystem < ActiveRecord::Base
+	ActiveRecord::Base.establish_connection(
+		:adapter => "sqlite3",
+		:database  => "../../db/development.sqlite3"
+	)
+end
 
-describe "OportunaSystem" do
+describe OportunaSystem do
 	before(:all) do
 		@driver = Selenium::WebDriver.for :firefox
 		@driver.navigate.to 'http://localhost:3000'
@@ -15,6 +18,7 @@ describe "OportunaSystem" do
 	end
 
 	after(:all) do
+		User.find_by_email("teste1@teste1.com").destroy
 		@driver.quit
 	end
 
