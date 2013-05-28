@@ -24,7 +24,7 @@ class UserTest < ActiveSupport::TestCase
 		:password  => '1234567',
 		:password_confirmation  => '1234567'
 		assert @user_unitTest.save
-	    first_password_hash = User.find_by_email('user3@test.com').password_hash
+		first_password_hash = User.find_by_email('user3@test.com').password_hash
 		@user_unitTest.password = '7654321'
 		@user_unitTest.password_confirmation = '7654321'
 		assert @user_unitTest.save
