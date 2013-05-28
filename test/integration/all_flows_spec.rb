@@ -6,7 +6,7 @@ require File.expand_path(File.dirname(__FILE__) + "/../../app/models/user")
 class OportunaSystem < ActiveRecord::Base
 	ActiveRecord::Base.establish_connection(
 		:adapter => "sqlite3",
-		:database  => "../../db/development.sqlite3"
+		:database  => "db/development.sqlite3"
 	)
 end
 
