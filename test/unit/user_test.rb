@@ -15,8 +15,8 @@ class UserTest < ActiveSupport::TestCase
 		:password  => '1234567',
 		:password_confirmation  => '1234567'
 		assert @user_unitTest.save
-		user_unitTest_copia = User.find(@user_unitTest.id)
-		assert_equal @user_unitTest, user_unitTest_copia
+		user_unitTest_copy = User.find(@user_unitTest.id)
+		assert_equal @user_unitTest, user_unitTest_copy
 	end
 
 	test "user is updated successfully" do
