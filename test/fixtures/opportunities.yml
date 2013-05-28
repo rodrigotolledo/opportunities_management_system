@@ -4,8 +4,17 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+# one: {}
+# # column: value
+# #
+# two: {}
+# #  column: value
+
+# opportunity:
+#   code: '001'
+#   company: 'companiaTeste'
+#   address: 'Ipiranga 6200'
+#   salary: '5000'
+#   start_date: '12/05/2013'
+#   end_date:	'12/08/2013'
+#   requirements: 'conhecimento em informatica'
