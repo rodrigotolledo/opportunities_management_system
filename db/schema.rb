@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130326044933) do
+ActiveRecord::Schema.define(:version => 20130625041404) do
 
   create_table "opportunities", :force => true do |t|
     t.string   "code"
@@ -21,8 +21,9 @@ ActiveRecord::Schema.define(:version => 20130326044933) do
     t.string   "start_date"
     t.string   "end_date"
     t.string   "requirements"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "approved",     :default => false
   end
 
   create_table "users", :force => true do |t|

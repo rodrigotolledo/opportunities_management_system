@@ -22,6 +22,7 @@
 	<td> <%= opportunity.end_date %> </td>	
 	<td> <%= opportunity.requirements %> </td>	
 	<td>
+
 		<% if student? %>
 		<%= link_to "Apply now!" %>
 		<% end %>
@@ -32,16 +33,16 @@
 		<% end %>
 
 		<% if director? %>
-		<%= link_to "Approve" %> |
-		<%= link_to "Reject" %>
+		<%= link_to("Approve", approve_opportunity_path(opportunity)) unless opportunity.approved %> |
+		<%= link_to "Reject", opportunity_path(opportunity), :method => "delete", :confirm => "Are you sure?" %>
 		<% end %>
-
 	</td>
 	</tr>
 <% end %>
 </table>
 <br>
 <p>
-	<!-- <%= link_to "Add new opportunity", new_opportunity_path %>	-->
+	<% if company? %>
 	<%= link_to "Add new opportunity", new_opportunity_path, :class => "btn", :id => "add_new_opportunity_button" %>
+	<% end %>
 </p>

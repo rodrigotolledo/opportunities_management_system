@@ -14,6 +14,7 @@ RailsApp::Application.routes.draw do
   get "users/new"
   #get "opportunities" => "opportunities#new", :as => "opportunities"
 
+  get '/opportunities/:id/approve', to: 'opportunities#approve', as: 'approve_opportunity'
   resources :opportunities
 
 end

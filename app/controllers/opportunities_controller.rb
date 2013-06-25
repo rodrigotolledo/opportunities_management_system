@@ -1,7 +1,11 @@
 class OpportunitiesController < ApplicationController
 
 	def index
-		@opportunities = Opportunity.all
+		if student?
+			@opportunities = Opportunity.where(approved: true)
+		else
+			@opportunities = Opportunity.all
+		end
 	end
 
 	def new
@@ -35,6 +39,13 @@ class OpportunitiesController < ApplicationController
     def destroy
     	@opportunity = Opportunity.find(params[:id]).destroy
     	flash[:notice] = "Opportunity deleted successfully!"
+    	redirect_to opportunities_path
+    end
+
+    def approve
+    	@opportunity = Opportunity.find(params[:id])
+    	@opportunity[:approved] = true
+    	@opportunity.save
     	redirect_to opportunities_path
     end
 end
