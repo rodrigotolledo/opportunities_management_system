@@ -2,9 +2,11 @@ class OpportunitiesController < ApplicationController
 
 	def index
 		if student?
-			@opportunities = Opportunity.where(approved: true)
+			@opportunities = Opportunity.where(approved: true).where("end_date >= ?", Time.zone.now.to_date)
 		else
-			@opportunities = Opportunity.all
+			#@opportunities = Opportunity.all
+			# This return just VALID opportunities! Time format should be '2013-06-26'
+			@opportunities = Opportunity.where("end_date >= ?", Time.zone.now.to_date)
 		end
 	end
 
