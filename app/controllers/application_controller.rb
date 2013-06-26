@@ -10,22 +10,22 @@ class ApplicationController < ActionController::Base
   end
 
   def student?
-  	@who_is = User.find(session[:user_id]).email
-  	if @who_is == "student@student.com"
+  	@who_is ||= User.find(session[:user_id]).type_user if session[:user_id]
+  	if @who_is == "student" || @who_is == nil
   		true
   	end
   end
 
   def company?
-  	@who_is = User.find(session[:user_id]).email
-  	if @who_is == "company@company.com"
+  	@who_is ||= User.find(session[:user_id]).type_user if session[:user_id]
+  	if @who_is == "company"
   		true
   	end
   end
 
   def director?
-  	@who_is = User.find(session[:user_id]).email
-  	if @who_is == "director@director.com"
+  	@who_is ||= User.find(session[:user_id]).type_user if session[:user_id]
+  	if @who_is == "director"
   		true
   	end
   end

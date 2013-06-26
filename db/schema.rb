@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130625041404) do
+ActiveRecord::Schema.define(:version => 20130626041924) do
 
   create_table "opportunities", :force => true do |t|
     t.string   "code"
@@ -21,9 +21,9 @@ ActiveRecord::Schema.define(:version => 20130625041404) do
     t.string   "start_date"
     t.string   "end_date"
     t.string   "requirements"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
     t.boolean  "approved",     :default => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20130625041404) do
     t.string   "password_salt"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "type_user"
   end
 
 end

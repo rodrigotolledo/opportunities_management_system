@@ -20,6 +20,12 @@
   <p>
     <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %>
   </p>
+
+    <%= f.radio_button :type_user, 'student', :checked => true %> Student
+    <br><%= f.radio_button :type_user, 'company' %> Company
+    <br><%= f.radio_button :type_user, 'director' %> Director
+    <br><br>
+
   <%= button_tag(type: "submit", :class => "btn", :id => "create_user_button") do %>
     Create User
   <% end %>

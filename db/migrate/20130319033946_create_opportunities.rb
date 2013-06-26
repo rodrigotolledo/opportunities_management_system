@@ -8,7 +8,7 @@ class CreateOpportunities < ActiveRecord::Migration
     	t.string :start_date
     	t.string :end_date
     	t.string :requirements
-      t.boolean :approved
+      t.boolean :approved, :default => false
 
       t.timestamps
     end
