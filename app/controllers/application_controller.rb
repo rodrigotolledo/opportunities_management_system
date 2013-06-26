@@ -12,7 +12,6 @@ class ApplicationController < ActionController::Base
   def student?
   	@who_is ||= User.find(session[:user_id]).type_user if session[:user_id]
   	if @who_is == "student"
-  	# if @who_is == "student" || @who_is == nil
   		true
   	end
   end
