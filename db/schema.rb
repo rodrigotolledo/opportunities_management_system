@@ -11,19 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130630023127) do
+ActiveRecord::Schema.define(:version => 20130630051436) do
 
   create_table "opportunities", :force => true do |t|
     t.string   "code"
     t.string   "company"
     t.string   "address"
     t.string   "salary"
-    t.date     "start_date",   :limit => 255
-    t.date     "end_date",     :limit => 255
     t.string   "requirements"
-    t.boolean  "approved",                    :default => false
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
+    t.boolean  "approved",     :default => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.date     "start_date"
+    t.date     "end_date"
   end
 
   create_table "users", :force => true do |t|
