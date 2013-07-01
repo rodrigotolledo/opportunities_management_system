@@ -50,4 +50,21 @@ class OpportunitiesController < ApplicationController
     	@opportunity.save
     	redirect_to opportunities_path
     end
+
+    def apply_opportunity
+    	@opportunity = Opportunity.find(params[:id])
+    	@opportunity.users << User.find(session[:user_id]) if session[:user_id]
+    	@opportunity.save
+    	redirect_to opportunities_path
+  	end
+
+    def show_students
+    	@opportunity = Opportunity.find(params[:id])
+    	if student?
+			@opportunities = Opportunity.where(approved: true).where("end_date >= ?", Time.zone.now.to_date)
+		else
+			@opportunities = Opportunity.where("end_date >= ?", Time.zone.now.to_date)
+		end
+    	render action: "index"
+    end
 end

@@ -24,12 +24,13 @@
 	<td>
 
 		<% if student? %>
-		<%= link_to "Apply now!" %>
+		<%= link_to "Apply now!", apply_opportunity_path(opportunity) %>
 		<% end %>
 
 		<% if company? %>
 		<%= link_to "Edit", edit_opportunity_path(opportunity) %> |
-		<%= link_to "Delete", opportunity_path(opportunity), :method => "delete", :confirm => "Are you sure?" %>
+		<%= link_to "Delete", opportunity_path(opportunity), :method => "delete", :confirm => "Are you sure?" %> |
+		<%= link_to "View Students", show_students_path(opportunity) %>
 		<% end %>
 
 		<% if director? %>
@@ -46,3 +47,17 @@
 	<%= link_to "Add new opportunity", new_opportunity_path, :class => "btn", :id => "add_new_opportunity_button" %>
 	<% end %>
 </p>
+
+	<% if company? && @opportunity %>
+	<table width="100%">
+	<tr>
+		<th> Students that applied for this opportunity</th>	
+	</tr>
+	<% @opportunity.users.each do |user| %>
+	<tr>
+	<td> <%= user.email %> </td>
+	</td>
+	</tr>
+	<% end %>
+
+<% end %>
